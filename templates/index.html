@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Crop Yield Predictor</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href='https://png.pngtree.com/element_our/sm/20180411/sm_5ace0628840fa.png'> <!-- Replace with your custom logo path -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Smooch Sans', cursive, sans-serif; /* Apply Smooch Sans font */
+            overflow-x: hidden;
+            font-size: calc(1em + 3px); /* Increase the base font size by 3px */
+        }
+
+        .background-zoom {
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        .background-zoom::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1590884810353-b270f816c862?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
+            transition: transform 0.6s ease;
+        }
+
+        .background-zoom:hover::before {
+            transform: scale(1.05);
+        }
+
+        h1, label, .btn {
+            color: white;
+            text-shadow: 1px 1px 4px #000;
+            font-size: calc(1.5em + 3px); /* Increase font size by 3px for h1, labels, and buttons */
+        }
+
+        footer {
+            color: white;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 1px 1px 3px #000;
+            font-size: calc(1em + 3px); /* Increase font size by 3px for footer text */
+        }
+
+        .container {
+            padding: 0 15px; /* added horizontal padding */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-zoom">
+        <header>
+            <h1 class="display-3 text-center" style="margin: 50px;">Crop Yield Predictor</h1>
+        </header>
+
+        <main>
+            <div class="container">
+                <form action="" method="post">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="mb-3">
+                                <label for="n" class="form-label">Nitrogen (N)</label>
+                                <input type="text" class="form-control" name="n" id="n" aria-describedby="helpId" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="mb-3">
+                                <label for="p" class="form-label">Phosphorus (P)</label>
+                                <input type="text" class="form-control" name="p" id="p" aria-describedby="helpId" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="mb-3">
+                                <label for="k" class="form-label">Potassium (K)</label>
+                                <input type="text" class="form-control" name="k" id="k" aria-describedby="helpId" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-4">
+                            <div class="mb-3">
+                                <label for="pH" class="form-label">pH</label>
+                                <input type="text" class="form-control" name="pH" id="pH" aria-describedby="helpId" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg">Predict</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <footer>
+            {% if res %}
+            <div class="text-center display-6">
+                For the given value {{res}} crop will give best yield
+            </div>
+            {% endif %}
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+</body>
+
+</html>
